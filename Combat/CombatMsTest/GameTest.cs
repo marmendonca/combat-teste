@@ -62,13 +62,12 @@ public class GameTest
     [TestMethod]
     public void HealSamePlayer()
     {
-        var target = new Character("teste 1");
-        target.ReceiveDemage(50);
-        var attacker = new Character("teste 1");
+        var characterToSave = new Character("teste 1");
+        characterToSave.ReceiveDemage(50);
 
-        var game = new Game(target, attacker);
-        var targetHealth = game.Heal(50);
+        var game = new Game(characterToSave);
+        var targetHealth = game.Heal(50, characterToSave);
 
-        Assert.AreEqual(target.Health, targetHealth);
+        Assert.AreEqual(characterToSave.Health, targetHealth);
     }
 }

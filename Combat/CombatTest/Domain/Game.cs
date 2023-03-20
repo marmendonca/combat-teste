@@ -4,6 +4,12 @@ public class Game
 {
     private Character _target;
     private Character _attacker;
+    private Character _characterToSave;
+
+    public Game(Character characterToSave)
+    {
+        _characterToSave = characterToSave;
+    }
 
     public Game(Character target, Character attacker)
     {
@@ -27,11 +33,11 @@ public class Game
         return _target.Health;
     }
 
-    public int Heal(int heal)
+    public int Heal(int healQuantity, Character characterSaving)
     {
-        if (_target.Name == _attacker.Name)
-            _target.ReceiveHeal(heal);
+        if (characterSaving.Name == _characterToSave.Name)
+            _characterToSave.ReceiveHeal(healQuantity);
 
-        return _target.Health;
+        return _characterToSave.Health;
     }
 }
