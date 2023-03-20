@@ -2,12 +2,14 @@
 
 public class Character
 {
+    public string Name { get; private set; }
     public int Health { get; private set; }
     public int Level { get; private set; }
     public bool Alive { get; private set; }
 
-    public Character()
+    public Character(string nome)
     {
+        Name = nome;
         Health = 1000;
         Level = 1;
         Alive = true;
@@ -28,12 +30,14 @@ public class Character
     {
         if (!Alive)
             throw new InvalidOperationException("Não é possível salvar personagem morto.");
-        else if (heal > 1000)
-            throw new InvalidOperationException("Só é possível a cura até 1000.");
 
         Health += heal;
+
+        if (Health > 1000)
+            throw new InvalidOperationException("Só é possível a cura até 1000.");
     }
 
     public void SetAlive(bool isAlive) => Alive = isAlive;
     
+    public void SetLevel(int level) => Level = level;
 }

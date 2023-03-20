@@ -8,7 +8,7 @@ public class CharacterTest
     [TestMethod]
     public void InitCharacterWithDefaultValues()
     {
-        var character = new Character();
+        var character = new Character("Teste");
 
         Assert.AreEqual(character.Health, 1000);
         Assert.AreEqual(character.Alive, true);
@@ -18,7 +18,7 @@ public class CharacterTest
     [TestMethod]
     public void ReceiveExceedDemage()
     {
-        var character = new Character();
+        var character = new Character("Teste");
 
         character.ReceiveDemage(1001);
 
@@ -29,7 +29,7 @@ public class CharacterTest
     [TestMethod]
     public void ReceiveValidDemage()
     {
-        var character = new Character();
+        var character = new Character("Teste");
 
         character.ReceiveDemage(900);
 
@@ -40,7 +40,7 @@ public class CharacterTest
     [TestMethod]
     public void ReceiveHealWhenCharacterIsNotAlive()
     {
-        var character = new Character();
+        var character = new Character("Teste");
 
         character.SetAlive(false);
 
@@ -52,7 +52,7 @@ public class CharacterTest
     [TestMethod]
     public void ReceiveHealWhenHealExceed1000()
     {
-        var character = new Character();
+        var character = new Character("Teste");
 
         var exception = Assert.ThrowsException<InvalidOperationException>(() => character.ReceiveHeal(1001));
 
@@ -62,7 +62,7 @@ public class CharacterTest
     [TestMethod]
     public void ReceiveValidHeal()
     {
-        var character = new Character();
+        var character = new Character("Teste");
 
         character.ReceiveHeal(500);
 
