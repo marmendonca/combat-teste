@@ -2,6 +2,8 @@
 
 public class Character
 {
+    public int Range { get; set; }
+
     public string Name { get; private set; }
     public int Health { get; private set; }
     public int Level { get; private set; }
